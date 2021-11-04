@@ -6,9 +6,12 @@ import Home from "./Home";
 import Calendar from "./Calendar";
 import Day from "./Day";
 
-import generateRandomAppointments from "./utils";
+import { generateRandomAppointments, getDentists } from "./utils";
+
 
 const appointments = generateRandomAppointments(70);
+
+getDentists()
 
 const App = () => (
   <Router>
