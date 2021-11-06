@@ -14,14 +14,16 @@ const divideByDay = appointments => {
   return appointmentsByDay;
 };
 
-export default ({ appointments }) => {
-  const appointmentsByDay = divideByDay(appointments);
+const Calendar = (props) => {
+
+  const appointmentsByDay = divideByDay(props.appointments);
 
   const daysInMonthJSX = Object.values(
     appointmentsByDay
-  ).map((appointmentsInDay, index) => (
-    <DayInMonth appointments={appointmentsInDay} key={index} />
-  ));
+  ).map((appointmentsInDay, index) => {
+    return ( <DayInMonth appointments={appointmentsInDay} key={index} /> )
+  }
+  );
 
   return (
     <div className="calendarview">
@@ -36,3 +38,6 @@ export default ({ appointments }) => {
     </div>
   );
 };
+
+
+export default Calendar 
