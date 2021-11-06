@@ -33,9 +33,6 @@ useEffect(() => {
 useEffect(() => {
   const newAppointments = getAppointments(dentists, assistants, patients, 150)
   setAppointments(newAppointments)
-  for (let item of newAppointments) {
-    item.patient === undefined && console.log(item)
-  }
 }, [dentists, assistants, patients])
 
     return (

@@ -11,6 +11,11 @@ const divideByDay = appointments => {
     }
     appointmentsByDay[day].push(appointment);
   });
+
+  for (let day in appointmentsByDay) {
+    appointmentsByDay[day] = appointmentsByDay[day].sort((a,b) => a.time - b.time)
+  }
+  
   return appointmentsByDay;
 };
 
