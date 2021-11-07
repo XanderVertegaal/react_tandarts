@@ -1,6 +1,7 @@
 import React from "react";
 import "./Calendar.css";
 import DayInMonth from "./DayInMonth";
+import InputForm from "./InputForm";
 
 const divideByDay = appointments => {
   const appointmentsByDay = {};
@@ -15,7 +16,7 @@ const divideByDay = appointments => {
   for (let day in appointmentsByDay) {
     appointmentsByDay[day] = appointmentsByDay[day].sort((a,b) => a.time - b.time)
   }
-  
+
   return appointmentsByDay;
 };
 
@@ -31,6 +32,8 @@ const Calendar = (props) => {
   );
 
   return (
+    <>
+    <InputForm addDentist={props.addDentist} addPatient={props.addPatient}/>
     <div className="calendarview">
       <div className="header">
         <div>Maandag</div>
@@ -41,6 +44,7 @@ const Calendar = (props) => {
       </div>
       <div className="table">{daysInMonthJSX}</div>
     </div>
+    </>
   );
 };
 

@@ -100,5 +100,31 @@ const getAppointments = (dentists, assistants, patients, num) =>
     .fill(0)
     .map(_ => generateRandomAppointment(dentists, assistants, patients));
 
+const addDentist = (dentists, setDentists, firstName, lastName, phoneNumber, emailAddress) => {
+    setDentists([
+      ...dentists,
+      {
+        dentistId: dentists.length + 1,
+        firstName,
+        lastName,
+        phoneNumber,
+        emailAddress
+      }
+    ])
+}
 
-export { getDentists, getAssistants, getPatients, getAppointments, getRandomPeople}
+const addPatient = (patients, setPatients, firstName, lastName, phoneNumber, emailAddress) => {
+  setPatients([
+    ...patients,
+    {
+      patientId: patients.length + 1,
+      firstName,
+      lastName,
+      phoneNumber,
+      emailAddress
+    }
+  ])
+}
+
+
+export { getDentists, getAssistants, getPatients, getAppointments, getRandomPeople, addDentist, addPatient}

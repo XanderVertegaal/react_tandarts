@@ -7,7 +7,7 @@ import Calendar from "./Calendar";
 import Day from "./Day";
 import Loading from "./Loading";
 
-import { getAssistants, getDentists, getPatients, getAppointments, getRandomPeople } from "./utils";
+import { getAssistants, getDentists, getPatients, getAppointments, getRandomPeople, addDentist, addPatient } from "./utils";
 
 const App = () => {
 
@@ -35,6 +35,16 @@ useEffect(() => {
   setAppointments(newAppointments)
 }, [dentists, assistants, patients])
 
+const addNewDentist = (firstName, lastName, phoneNumber, emailAddress) => {
+  addDentist(dentists, setDentists, firstName, lastName, phoneNumber, emailAddress)
+  console.log('New dentist added:', dentists)
+}
+
+const addNewPatient = (firstName, lastName, phoneNumber, emailAddress) => {
+  addPatient(patients, setPatients, firstName, lastName, phoneNumber, emailAddress)
+  console.log('New patient added:', patients)
+}
+
     return (
     <Router>
       <div>
@@ -58,7 +68,7 @@ useEffect(() => {
             <Route path="/calendar">
               {appointments === '0' || appointments.some(x => x.patient === '0') ?
               <Loading /> :
-              <Calendar appointments={appointments} />
+              <Calendar appointments={appointments} addDentist={addNewDentist} addPatient={addNewPatient}/>
               }
             </Route>
             <Route path="/day">
