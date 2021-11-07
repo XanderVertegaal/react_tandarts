@@ -21,7 +21,7 @@ const getDentists = (peopleData) => {
   let newId = 1
   for (let item of dentistList) {
     dentists.push({
-      dentistId: newId,
+      id: newId,
       firstName: item.name.first,
       lastName: item.name.last,
       phoneNumber: item.phone,
@@ -40,7 +40,7 @@ const getAssistants = peopleData => {
   let newId = 1
   for (let item of assistantList) {
     assistants.push({
-      assistantId: newId,
+      id: newId,
       firstName: item.name.first,
       lastName: item.name.last,
       phoneNumber: item.phone,
@@ -58,7 +58,7 @@ const getPatients = peopleData => {
   let newId = 1
   for (let item of patientList) {
     patients.push({
-      patientId: newId,
+      id: newId,
       firstName: item.name.first,
       lastName: item.name.last,
       phoneNumber: item.phone,
@@ -104,7 +104,7 @@ const addDentist = (dentists, setDentists, firstName, lastName, phoneNumber, ema
     setDentists([
       ...dentists,
       {
-        dentistId: dentists.length + 1,
+        id: dentists.length + 1,
         firstName,
         lastName,
         phoneNumber,
@@ -126,5 +126,12 @@ const addPatient = (patients, setPatients, firstName, lastName, phoneNumber, ema
   ])
 }
 
-
-export { getDentists, getAssistants, getPatients, getAppointments, getRandomPeople, addDentist, addPatient}
+export { 
+  getDentists, 
+  getAssistants, 
+  getPatients, 
+  getAppointments, 
+  getRandomPeople, 
+  addDentist, 
+  addPatient
+}

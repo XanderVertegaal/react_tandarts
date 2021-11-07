@@ -16,24 +16,29 @@ const divideByDay = appointments => {
   for (let day in appointmentsByDay) {
     appointmentsByDay[day] = appointmentsByDay[day].sort((a,b) => a.time - b.time)
   }
-
   return appointmentsByDay;
 };
 
-const Calendar = (props) => {
+const Calendar = props => {
 
   const appointmentsByDay = divideByDay(props.appointments);
 
-  const daysInMonthJSX = Object.values(
-    appointmentsByDay
-  ).map((appointmentsInDay, index) => {
-    return ( <DayInMonth appointments={appointmentsInDay} key={index} /> )
-  }
-  );
+  const daysInMonthJSX = Object
+    .values(appointmentsByDay)
+    .map((appointmentsInDay, index) => 
+    <DayInMonth appointments={appointmentsInDay} key={index} sickPeople={props.sickPeople}/>
+    );
 
   return (
     <>
-    <InputForm addDentist={props.addDentist} addPatient={props.addPatient}/>
+    <InputForm 
+      addDentist={props.addDentist} 
+      addPatient={props.addPatient} 
+      dentists={props.dentists}
+      assistants={props.assistants}
+      patients={props.patients}
+      makeSick={props.makeSick}
+    />
     <div className="calendarview">
       <div className="header">
         <div>Maandag</div>

@@ -15,6 +15,7 @@ const App = () => {
   let [assistants, setAssistants] = useState('0')
   let [patients, setPatients] = useState('0')
   let [appointments, setAppointments] = useState('0')
+  let [sickPeople, setSickPeople] = useState({dentist: [], assistant: [], patient: []})
 
 useEffect(() => {
   getRandomPeople()
@@ -37,12 +38,16 @@ useEffect(() => {
 
 const addNewDentist = (firstName, lastName, phoneNumber, emailAddress) => {
   addDentist(dentists, setDentists, firstName, lastName, phoneNumber, emailAddress)
-  console.log('New dentist added:', dentists)
 }
 
 const addNewPatient = (firstName, lastName, phoneNumber, emailAddress) => {
   addPatient(patients, setPatients, firstName, lastName, phoneNumber, emailAddress)
-  console.log('New patient added:', patients)
+}
+
+const addSickPerson = (type, id) => {
+  let newSickPeople = {...sickPeople}
+  !newSickPeople[type].includes(id) && newSickPeople[type].push(parseInt(id))
+  setSickPeople(newSickPeople)
 }
 
     return (
@@ -68,13 +73,22 @@ const addNewPatient = (firstName, lastName, phoneNumber, emailAddress) => {
             <Route path="/calendar">
               {appointments === '0' || appointments.some(x => x.patient === '0') ?
               <Loading /> :
-              <Calendar appointments={appointments} addDentist={addNewDentist} addPatient={addNewPatient}/>
+              <Calendar 
+                appointments={appointments} 
+                addDentist={addNewDentist} 
+                addPatient={addNewPatient}
+                dentists={dentists}
+                assistants={assistants}
+                patients={patients}
+                sickPeople={sickPeople}
+                makeSick={addSickPerson}
+              />
               }
             </Route>
             <Route path="/day">
               {appointments === '0' || appointments.some(x => x.patient === '0') ?
               <Loading /> :
-              <Day appointments={appointments.filter(app => app.day === 1)} />
+              <Day appointments={appointments.filter(app => app.day === 1)} sickPeople={sickPeople} />
               }
             </Route>
             <Route path="/">

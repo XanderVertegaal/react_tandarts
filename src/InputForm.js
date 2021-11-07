@@ -1,5 +1,6 @@
 import React from "react";
 import AddPerson from "./AddPerson";
+import PeopleOptions from "./PeopleOptions";
 
 const InputForm = props => {
     return (
@@ -11,16 +12,42 @@ const InputForm = props => {
             <AddPerson buttonText={"Add new dentist"} addPerson={props.addDentist} />
             <AddPerson buttonText={"Add new patient"} addPerson={props.addPatient} />
             <br/>
-            
+
             <select id="dentist-selector">
-                {/* <DentistOptions/>*/}
+                <option>-Please select a dentist-</option>
+                <PeopleOptions people={props.dentists}/>
             </select>
-            <button>Dentist is sick</button>
+            <button 
+                onClick={event => {
+                    event.preventDefault()
+                    props.makeSick('dentist', document.getElementById('dentist-selector').value)
+                }}
+            >Dentist is sick</button>
             <br/>
-            <select id="patient-selector">
-                {/* <PatientOptions/>*/}
+
+            <select id="assistant-selector">
+                <option value="">-Please select an assistant-</option>
+                <PeopleOptions people={props.assistants}/>
             </select>
-            <button>Patient is sick</button>
+            <button
+                onClick={event => {
+                    event.preventDefault()
+                    props.makeSick('assistant', document.getElementById('assistant-selector').value)
+                }}
+                >Assistant is sick</button>
+            <br/>
+
+            <select id="patient-selector">
+                <option value="">-Please select a patient-</option>
+                <PeopleOptions people={props.patients}/>
+            </select>
+            <button
+                onClick={event => {
+                    event.preventDefault()
+                    props.makeSick('patient', document.getElementById('patient-selector').value)
+                }}
+                >Patient is sick</button>
+            <br/>
             <select>
                 {/* {AppointmentOptions} */}
             </select>
