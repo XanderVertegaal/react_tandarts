@@ -95,10 +95,30 @@ const generateRandomAppointment = (dentists, assistants, patients) => ({
   patient: getRandomName(patients),
 });
 
-const getAppointments = (dentists, assistants, patients, num) =>
-  Array(num)
-    .fill(0)
-    .map(_ => generateRandomAppointment(dentists, assistants, patients));
+const isConflict = (appointment, appointments) =>  appointments.some(item => (
+      item.time === appointment.time && 
+      item.day === appointment.day &&
+      (
+        item.dentist === appointment.dentist || 
+        item.assistant === appointment.assistant ||
+        item.patient === appointment.patient
+      )
+    ))
+  // false
+//   )
+// }
+
+const getAppointments = (dentists, assistants, patients, num) => {
+  let appointments = []
+  while (appointments.length < num) {
+    let newAppointment = generateRandomAppointment(dentists, assistants, patients)
+    if (isConflict(newAppointment, appointments) === false) {
+      appointments.push(newAppointment)
+    }
+  }
+  return appointments
+}
+
 
 const addDentist = (dentists, setDentists, firstName, lastName, phoneNumber, emailAddress) => {
     setDentists([

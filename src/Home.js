@@ -4,7 +4,7 @@ import "./App.css";
 const Home = (props) => {
     
     const dentistFrame = props.dentists.map(dentist => (
-        <tr key={`dentist-${dentist.dentistId}`}>
+        <tr key={`dentist-${dentist.id}`}>
             <td>
                 {dentist.firstName}
             </td>
@@ -20,7 +20,7 @@ const Home = (props) => {
     ))
 
     const assistantFrame = props.assistants.map(assistant => (
-        <tr key={`assistant-${assistant.assistantId}`}>
+        <tr key={`assistant-${assistant.id}`}>
             <td>
                 {assistant.firstName}
             </td>

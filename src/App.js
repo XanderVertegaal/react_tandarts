@@ -71,7 +71,9 @@ const addSickPerson = (type, id) => {
         <main>
           <Switch>
             <Route path="/calendar">
-              {appointments === '0' || appointments.some(x => x.patient === '0') ?
+              {appointments === '0' || 
+              appointments.length !== 150 ||
+              appointments.some(x => x.patient === '0') ?
               <Loading /> :
               <Calendar 
                 appointments={appointments} 
@@ -89,7 +91,7 @@ const addSickPerson = (type, id) => {
               {appointments === '0' || appointments.some(x => x.patient === '0') ?
               <Loading /> :
               <Day 
-                appointments={appointments.filter(app => app.day === 1)} 
+                appointments={'appointments.filter(app => app.day === 1)'} 
                 sickPeople={sickPeople} />
               }
             </Route>
