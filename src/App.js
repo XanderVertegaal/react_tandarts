@@ -88,7 +88,9 @@ const addSickPerson = (type, id) => {
             <Route path="/day">
               {appointments === '0' || appointments.some(x => x.patient === '0') ?
               <Loading /> :
-              <Day appointments={appointments.filter(app => app.day === 1)} sickPeople={sickPeople} />
+              <Day 
+                appointments={appointments.filter(app => app.day === 1)} 
+                sickPeople={sickPeople} />
               }
             </Route>
             <Route path="/">
