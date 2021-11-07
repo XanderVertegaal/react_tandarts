@@ -18,6 +18,9 @@ const AppointmentOptions = props => props.appointments
         }
         return sortValue
     })
-    .map(x => <option key={x.time+x.day+x.dentist.id}>Dag {x.day} {format_time(x.time)} - {x.patient.firstName} {x.patient.lastName}</option>)
+    .map(x => 
+    <option key={x.id} value={x.id}>
+        Dag {x.day} {format_time(x.time)} - {x.patient.firstName} {x.patient.lastName}
+    </option>)
 
 export default AppointmentOptions

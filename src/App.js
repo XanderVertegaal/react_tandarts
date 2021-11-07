@@ -50,6 +50,16 @@ const addSickPerson = (type, id) => {
   setSickPeople(newSickPeople)
 }
 
+const removeAppointment = appointmentId => {
+  console.log('Old appointments:', appointments)
+  console.log('Id', appointmentId)
+  let newAppointments = [...appointments]
+  const foundIndex = newAppointments.indexOf(newAppointments.find(x => parseInt(x.id) === parseInt(appointmentId)))
+  console.log('Index', foundIndex)
+  newAppointments.splice(foundIndex, 1)
+  setAppointments(newAppointments)
+}
+
     return (
     <Router>
       <div>
@@ -72,7 +82,6 @@ const addSickPerson = (type, id) => {
           <Switch>
             <Route path="/calendar">
               {appointments === '0' || 
-              appointments.length !== 150 ||
               appointments.some(x => x.patient === '0') ?
               <Loading /> :
               <Calendar 
@@ -84,6 +93,7 @@ const addSickPerson = (type, id) => {
                 patients={patients}
                 sickPeople={sickPeople}
                 makeSick={addSickPerson}
+                removeAppointment={removeAppointment}
               />
               }
             </Route>
@@ -91,7 +101,7 @@ const addSickPerson = (type, id) => {
               {appointments === '0' || appointments.some(x => x.patient === '0') ?
               <Loading /> :
               <Day 
-                appointments={'appointments.filter(app => app.day === 1)'} 
+                appointments={appointments.filter(app => app.day === 1)} 
                 sickPeople={sickPeople} />
               }
             </Route>

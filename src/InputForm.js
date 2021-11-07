@@ -54,7 +54,14 @@ const InputForm = props => {
                 <option value="">-Please select an appointment-</option>
                 <AppointmentOptions appointments={props.appointments} />
             </select>
-            <button>Remove appointment</button>
+            <button
+                onClick={event => {
+                    event.preventDefault()
+                    props.removeAppointment(document.getElementById('appointment-selector').value)
+                    console.log('New appointments:', props.appointments)
+                }}
+            >Remove appointment</button>
+            <br/>
 
             <input type="number" id="input-day"/>
             <input type="number" className="input-hour"/>

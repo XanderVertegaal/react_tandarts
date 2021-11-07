@@ -110,10 +110,13 @@ const isConflict = (appointment, appointments) =>  appointments.some(item => (
 
 const getAppointments = (dentists, assistants, patients, num) => {
   let appointments = []
+  let newId = 1
   while (appointments.length < num) {
     let newAppointment = generateRandomAppointment(dentists, assistants, patients)
     if (isConflict(newAppointment, appointments) === false) {
+      newAppointment.id = newId
       appointments.push(newAppointment)
+      newId++
     }
   }
   return appointments
