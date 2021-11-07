@@ -9,9 +9,9 @@ export default ({ appointments }) => {
     ({ time, patient, dentist, assistant }, index) => (
       <AppointmentInDay
         time={time}
-        patient={patient.firstName}
-        dentist={dentist.firstName}
-        assistant={assistant = 'no assistant' ? assistant : assistant.firstName}
+        patient={`${patient.firstName} ${patient.lastName}`}
+        dentist={`${dentist.firstName} ${dentist.lastName}`}
+        assistant={assistant = 'no assistant' ? `no assistant` : `${assistant.firstName} ${assistant.lastName}`}
         key={index}
       />
     )

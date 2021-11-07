@@ -126,6 +126,18 @@ const addPatient = (patients, setPatients, firstName, lastName, phoneNumber, ema
   ])
 }
 
+const isPatientSick = (sickPeople, appointment) => {
+  return sickPeople.patient.includes(appointment.patient.id)
+}
+
+const isDentistSick = (sickPeople, appointment) => {
+  return sickPeople.dentist.includes(appointment.dentist.id)
+}
+
+const isAssistantSick = (sickPeople, appointment) => {
+  return sickPeople.assistant.includes(appointment.assistant.id)
+}
+
 export { 
   getDentists, 
   getAssistants, 
@@ -133,5 +145,8 @@ export {
   getAppointments, 
   getRandomPeople, 
   addDentist, 
-  addPatient
+  addPatient,
+  isDentistSick,
+  isAssistantSick,
+  isPatientSick
 }
