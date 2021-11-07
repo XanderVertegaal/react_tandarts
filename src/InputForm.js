@@ -1,6 +1,7 @@
 import React from "react";
 import AddPerson from "./AddPerson";
 import PeopleOptions from "./PeopleOptions";
+import AppointmentOptions from "./AppointmentOptions";
 
 const InputForm = props => {
     return (
@@ -48,8 +49,10 @@ const InputForm = props => {
                 }}
                 >Patient is sick</button>
             <br/>
-            <select>
-                {/* {AppointmentOptions} */}
+
+            <select id="appointment-selector">
+                <option value="">-Please select an appointment-</option>
+                <AppointmentOptions appointments={props.appointments} />
             </select>
             <button>Remove appointment</button>
 

@@ -38,6 +38,7 @@ const Calendar = props => {
       assistants={props.assistants}
       patients={props.patients}
       makeSick={props.makeSick}
+      appointments={props.appointments}
     />
     <div className="calendarview">
       <div className="header">
