@@ -63,7 +63,7 @@ const getPatients = peopleData => {
       lastName: item.name.last,
       phoneNumber: item.phone,
       emailAddress: item.email,
-      dob: item.dob.date
+      dob: item.dob.date.slice(0,4)
     })
     newId++
   }
