@@ -71,9 +71,23 @@ const addAppointment = (day, time, patientId, dentistId, assistantId = 'no assis
     time: parseInt(time),
     id: (appointments.length + 1)
   }
-  console.log('New appointment:', newAppointment)
   isConflict(newAppointment, appointments) === false && setAppointments([...appointments, newAppointment])
   isConflict(newAppointment, appointments) === true && console.log('Clash!')
+}
+
+const moveAppointment = (appointmentId, newDay, newTime) => {
+  let newAppointment = appointments.find(x => x.id === parseInt(appointmentId))
+  newAppointment.time = parseInt(newTime)
+  newAppointment.day = parseInt(newDay)
+
+  let newAppointments = [...appointments]
+  if (isConflict(newAppointment, newAppointments) === true) {console.log('clash')}
+  if (isConflict(newAppointment, newAppointments) === false) {
+    const foundIndex = newAppointments.indexOf(newAppointments.find(x => parseInt(x.id) === parseInt(appointmentId)))
+    newAppointments.splice(foundIndex, 1)
+    newAppointments.push(newAppointment)
+    setAppointments(newAppointments)
+  } 
 }
 
     return (
@@ -110,6 +124,7 @@ const addAppointment = (day, time, patientId, dentistId, assistantId = 'no assis
                 sickPeople={sickPeople}
                 makeSick={addSickPerson}
                 addAppointment={addAppointment}
+                moveAppointment={moveAppointment}
                 removeAppointment={removeAppointment}
               />
               }

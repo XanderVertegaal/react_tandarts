@@ -3,7 +3,6 @@ import "./Day.css";
 import AppointmentInDay from "./AppointmentInDay";
 
 export default props => {
-  console.log('Day appointments:', props.appointments)
   const appointmentsJSX = props.appointments
     .sort((a, b) => a.time - b.time)
     .map(

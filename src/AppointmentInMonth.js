@@ -14,7 +14,6 @@ const AppointmentInMonth = props => {
       </div>
     );
     } else if (isDentistSick(props.sickPeople, props.appointment)) {
-    console.log('Hit!', props.appointment, props.sickPeople)
     sickStyle = {backgroundColor: 'red'}
     } else if (isAssistantSick(props.sickPeople, props.appointment)) {
       sickStyle = {backgroundColor: 'yellow'}

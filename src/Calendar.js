@@ -40,6 +40,7 @@ const Calendar = props => {
       makeSick={props.makeSick}
       appointments={props.appointments}
       addAppointment={props.addAppointment}
+      moveAppointment={props.moveAppointment}
       removeAppointment={props.removeAppointment}
     />
     <div className="calendarview">

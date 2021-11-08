@@ -96,6 +96,7 @@ const generateRandomAppointment = (dentists, assistants, patients) => ({
 });
 
 const isConflict = (appointment, appointments) =>  appointments.some(item => (
+      item.id !== appointment.id &&
       item.time === appointment.time && 
       item.day === appointment.day &&
       (

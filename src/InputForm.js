@@ -77,8 +77,8 @@ const InputForm = props => {
             </select>
             <br/>
 
-            Dag: <input type="number" id="input-day"/>
-            Tijd: <input type="number" id="input-time"/>
+            Day (1-28): <input type="number" id="input-day" min="1" max="28"/>
+            Time (8-18): <input type="number" id="input-time" min="8" max="18"/>
             <button
                 onClick={event => {
                     event.preventDefault()
@@ -93,7 +93,23 @@ const InputForm = props => {
             >Add appointment</button>
             <br/>
             
-            <button>Move appointment</button>
+            <h3>Move appointment:</h3>
+            <select id="appointment-selector-move">
+                <option value="">-Please select an appointment-</option>
+                <AppointmentOptions appointments={props.appointments} />
+            </select>
+            to: Day (1-28) <input type="number" id="input-day-move" min="1" max="28"/>
+            Time (8-18) <input type="number" id="input-time-move" min="8" max="18"/>
+            <button
+                onClick={event => {
+                    event.preventDefault()
+                    props.moveAppointment(
+                        document.getElementById('appointment-selector-move').value,
+                        document.getElementById('input-day-move').value,
+                        document.getElementById('input-time-move').value
+                    )
+                }}
+            >Move appointment</button>
         </form>
 
     )

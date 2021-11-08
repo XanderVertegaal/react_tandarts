@@ -4,8 +4,6 @@ import { isAssistantSick, isDentistSick, isPatientSick } from "./utils";
 const format_time = time => (time < 10 ? `0${time}:00u` : `${time}:00u`);
 
 const AppointmentInDay = props => {
-  console.log('Sick people:', props.sickPeople)
-  console.log('Appointment:', props.appointment)
 
   let sickStyle = {}
   let patientText = `${props.appointment.patient.firstName} ${props.appointment.patient.lastName}`
