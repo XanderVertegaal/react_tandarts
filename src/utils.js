@@ -158,7 +158,12 @@ const isDentistSick = (sickPeople, appointment) => {
 }
 
 const isAssistantSick = (sickPeople, appointment) => {
-  return sickPeople.assistant.includes(appointment.assistant.id)
+  console.log('Kijk dan:', appointment)
+  if (appointment.assistant.hasOwnProperty('id')) {
+    return sickPeople.assistant.includes(appointment.assistant.id)
+  } else {
+    return false
+  } 
 }
 
 export { 
@@ -171,5 +176,6 @@ export {
   addPatient,
   isDentistSick,
   isAssistantSick,
-  isPatientSick
+  isPatientSick,
+  isConflict
 }

@@ -7,7 +7,7 @@ import Calendar from "./Calendar";
 import Day from "./Day";
 import Loading from "./Loading";
 
-import { getAssistants, getDentists, getPatients, getAppointments, getRandomPeople, addDentist, addPatient } from "./utils";
+import { getAssistants, getDentists, getPatients, getAppointments, getRandomPeople, addDentist, addPatient, isConflict } from "./utils";
 
 const App = () => {
 
@@ -51,13 +51,29 @@ const addSickPerson = (type, id) => {
 }
 
 const removeAppointment = appointmentId => {
-  console.log('Old appointments:', appointments)
-  console.log('Id', appointmentId)
   let newAppointments = [...appointments]
   const foundIndex = newAppointments.indexOf(newAppointments.find(x => parseInt(x.id) === parseInt(appointmentId)))
-  console.log('Index', foundIndex)
   newAppointments.splice(foundIndex, 1)
   setAppointments(newAppointments)
+}
+
+const addAppointment = (day, time, patientId, dentistId, assistantId) => {
+  const patient = patients.find(x => x.id === patientId)
+  const dentist = dentists.find(x => x.id === dentistId)
+  let newAssistant = 'no assistant'
+  if (assistantId !== 'no assistant') {
+    newAssistant = assistants.find(x => x.id === assistantId)
+  }
+  const newAppointment = {
+    dentist, patient,
+    assistant: newAssistant,
+    day: parseInt(day),
+    time: parseInt(time),
+    id: (appointments.length + 1)
+  }
+  console.log('New appointment:', newAppointment)
+  isConflict(newAppointment, appointments) === false && setAppointments([...appointments, newAppointment])
+  isConflict(newAppointment, appointments) === true && console.log('Clash!')
 }
 
     return (
@@ -93,6 +109,7 @@ const removeAppointment = appointmentId => {
                 patients={patients}
                 sickPeople={sickPeople}
                 makeSick={addSickPerson}
+                addAppointment={addAppointment}
                 removeAppointment={removeAppointment}
               />
               }

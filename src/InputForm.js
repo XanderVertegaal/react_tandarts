@@ -58,14 +58,41 @@ const InputForm = props => {
                 onClick={event => {
                     event.preventDefault()
                     props.removeAppointment(document.getElementById('appointment-selector').value)
-                    console.log('New appointments:', props.appointments)
                 }}
             >Remove appointment</button>
             <br/>
 
-            <input type="number" id="input-day"/>
-            <input type="number" className="input-hour"/>
-            <button>Add appointment</button>
+            <h3>New appointment:</h3>
+            <select id="patient-selector-new">
+                <option value="">-Please select a patient-</option>
+                <PeopleOptions people={props.patients}/>
+            </select>
+            <select id="dentist-selector-new">
+                <option>-Please select a dentist-</option>
+                <PeopleOptions people={props.dentists}/>
+            </select>
+            <select id="assistant-selector-new">
+                <option value="no assistant">-Please select an assistant-</option>
+                <PeopleOptions people={props.assistants}/>
+            </select>
+            <br/>
+
+            Dag: <input type="number" id="input-day"/>
+            Tijd: <input type="number" id="input-time"/>
+            <button
+                onClick={event => {
+                    event.preventDefault()
+                    props.addAppointment(
+                        document.getElementById('input-day').value, 
+                        document.getElementById('input-time').value,
+                        parseInt(document.getElementById('patient-selector-new').value),
+                        parseInt(document.getElementById('dentist-selector-new').value),
+                        parseInt(document.getElementById('assistant-selector-new').value)
+                    )
+                }}
+            >Add appointment</button>
+            <br/>
+            
             <button>Move appointment</button>
         </form>
 
