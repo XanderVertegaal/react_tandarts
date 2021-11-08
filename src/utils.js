@@ -158,8 +158,7 @@ const isDentistSick = (sickPeople, appointment) => {
 }
 
 const isAssistantSick = (sickPeople, appointment) => {
-  console.log('Kijk dan:', appointment)
-  if (appointment.assistant.hasOwnProperty('id')) {
+  if (appointment.assistant !== 'no assistant' || appointment.assistant !== undefined) {
     return sickPeople.assistant.includes(appointment.assistant.id)
   } else {
     return false

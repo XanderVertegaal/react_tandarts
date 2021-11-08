@@ -85,9 +85,9 @@ const InputForm = props => {
                     props.addAppointment(
                         document.getElementById('input-day').value, 
                         document.getElementById('input-time').value,
-                        parseInt(document.getElementById('patient-selector-new').value),
-                        parseInt(document.getElementById('dentist-selector-new').value),
-                        parseInt(document.getElementById('assistant-selector-new').value)
+                        document.getElementById('patient-selector-new').value,
+                        document.getElementById('dentist-selector-new').value,
+                        document.getElementById('assistant-selector-new').value
                     )
                 }}
             >Add appointment</button>

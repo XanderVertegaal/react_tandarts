@@ -57,12 +57,12 @@ const removeAppointment = appointmentId => {
   setAppointments(newAppointments)
 }
 
-const addAppointment = (day, time, patientId, dentistId, assistantId) => {
-  const patient = patients.find(x => x.id === patientId)
-  const dentist = dentists.find(x => x.id === dentistId)
+const addAppointment = (day, time, patientId, dentistId, assistantId = 'no assistant') => {
+  const patient = patients.find(x => x.id === parseInt(patientId))
+  const dentist = dentists.find(x => x.id === parseInt(dentistId))
   let newAssistant = 'no assistant'
   if (assistantId !== 'no assistant') {
-    newAssistant = assistants.find(x => x.id === assistantId)
+    newAssistant = assistants.find(x => x.id === parseInt(assistantId)) 
   }
   const newAppointment = {
     dentist, patient,
