@@ -140,7 +140,7 @@ const addPatient = (patients, setPatients, firstName, lastName, phoneNumber, ema
   setPatients([
     ...patients,
     {
-      patientId: patients.length + 1,
+      id: patients.length + 1,
       firstName,
       lastName,
       phoneNumber,
