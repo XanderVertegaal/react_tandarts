@@ -39,16 +39,16 @@ const Home = (props) => {
     <>
     <article>
         <header>
-            <h2>Welkom in onze kliniek!</h2>
-            <p>De volgende tandartsen hebben momenteel dienst:</p>
+            <h2 className="home-title">Welcome to our clinic!</h2>
+            <p className="home-lead">Dentists currently on duty:</p>
         </header>
         <table className="peopleTable">
             <tbody>
                 <tr>
-                    <th>Voornaam</th>
-                    <th>Achternaam</th>
-                    <th>Telefoonnummer</th>
-                    <th>E-mailadres</th>
+                    <th>First name</th>
+                    <th>Surname</th>
+                    <th>Phone number</th>
+                    <th>Email address</th>
                 </tr>
                 {dentistFrame}
             </tbody>
@@ -57,15 +57,15 @@ const Home = (props) => {
 
     <article>
     <header>
-        <p>De volgende assistenten hebben momenteel dienst:</p>
+        <p>Assistants currently on duty:</p>
     </header>
     <table className="peopleTable">
         <tbody>
             <tr>
-                <th>Voornaam</th>
-                <th>Achternaam</th>
-                <th>Telefoonnummer</th>
-                <th>E-mailadres</th>
+                <th>First name</th>
+                <th>Surname</th>
+                <th>Phone number</th>
+                <th>Email address</th>
             </tr>
             {assistantFrame}
         </tbody>
