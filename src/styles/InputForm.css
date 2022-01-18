@@ -1,0 +1,50 @@
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  legend {
+    font-weight: bold;
+    color: #EAECBC;
+  }
+  
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em;
+  }
+
+  label {
+      color: #EAECBC;
+  }
+  
+  button {
+    background-color: lightslategray;
+    border: 0;
+    color: #EAECBC;
+    font-weight: bold;
+    border: #EAECBC 2px solid;
+    padding: .5em 1em;
+    margin: 1em 0 1.5em 0;
+    border-radius: 5px;
+    box-shadow: 0 2px black;
+  }
+
+  button:hover {
+    color: greenyellow;
+    border: 2px solid greenyellow;
+  }
+  
+  button:last-child {
+    margin-bottom: .25em;
+  }
+  
+  button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
+  input {
+    margin: .5em;
+  }

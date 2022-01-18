@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/InputForm.css'
 import AddPerson from "./AddPerson";
 import PeopleOptions from "./PeopleOptions";
 import AppointmentOptions from "./AppointmentOptions";
@@ -111,8 +112,12 @@ const InputForm = props => {
                         <option value="">-Please select an appointment-</option>
                         <AppointmentOptions appointments={props.appointments} />
                     </select>
-                    to: Day (1-28) <input type="number" id="input-day-move" min="1" max="28"/>
-                    Time (8-18) <input type="number" id="input-time-move" min="8" max="18"/>
+                    <label htmlFor="input-day-move">
+                        Target day (1-28) <input type="number" id="input-day-move" min="1" max="28"/>
+                    </label>
+                    <label htmlFor="input-time-move">
+                        Target time (8-18) <input type="number" id="input-time-move" min="8" max="18"/>
+                    </label>
                     <button
                         onClick={event => {
                             event.preventDefault()

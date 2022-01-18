@@ -1,0 +1,26 @@
+
+.home-screen {
+    color: #EAECBC;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.home-title {
+    margin: 2em 0;
+    text-align: center;
+  }
+
+.home-lead {
+    text-align: center;
+}
+
+.peopleTable {
+    margin: 2em;
+    border-spacing: 1em;
+    outline: #EAECBC 2px solid;
+    border-radius: 5px;
+}

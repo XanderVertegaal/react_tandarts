@@ -1,5 +1,5 @@
 import React from "react";
-import { isAssistantSick, isDentistSick, isPatientSick } from "./utils";
+import { isAssistantSick, isDentistSick, isPatientSick } from "../utils";
 
 const format_time = time => (time < 10 ? `0${time}:00u` : `${time}:00u`);
 

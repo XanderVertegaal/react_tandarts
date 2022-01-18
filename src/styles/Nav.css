@@ -1,0 +1,41 @@
+nav {
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+nav ul {
+    margin-left: auto;
+    display: flex;
+}
+nav li {
+  display: block;
+  list-style: none;
+  margin-left: 2em;
+  padding: 1em;
+}
+
+nav a:hover {
+  color: greenyellow;
+}
+
+a,
+a:focus,
+a:visited {
+  color: #EAECBC;
+  border-radius: 10px;
+  text-decoration: none;
+
+}
+
+.logo {
+    background-color: #EAECBC;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+.main-title {
+    color: #EAECBC;
+    margin: 0 1em;
+}

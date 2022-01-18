@@ -1,8 +1,6 @@
-
 const getRandomPeople = async () => {
   try {
     const response = await fetch('https://randomuser.me/api/?results=56')
-
     if (!response.ok) {
       const errorMessage = `Data could not be retrieved: ${response.status}`
       throw new Error(errorMessage, response.statusText)
@@ -13,6 +11,7 @@ const getRandomPeople = async () => {
     console.log(error)
   }
 }
+
 
 const getDentists = (peopleData) => {
   const dentistList = peopleData.slice(0,4)
@@ -30,8 +29,8 @@ const getDentists = (peopleData) => {
     newId++
   }
   return dentists
-
 }
+
 
 const getAssistants = peopleData => {
   const assistantList = peopleData.slice(4,6)
@@ -50,6 +49,7 @@ const getAssistants = peopleData => {
   }
   return assistants
 }
+
 
 const getPatients = peopleData => {
   const patientList = peopleData.slice(6)
@@ -70,6 +70,7 @@ const getPatients = peopleData => {
   return patients
 }
 
+
 const getRandomTime = () => {
   let hour;
   while (true) {
@@ -80,12 +81,15 @@ const getRandomTime = () => {
   }
 };
 
+
 const getRandomName = people => {
   const randNum = Math.floor(Math.random() * people.length);
   return people[randNum]
 }
 
+
 const getRandomDay = () => Math.floor(Math.random() * 28) + 1;
+
 
 const generateRandomAppointment = (dentists, assistants, patients) => ({
   day: getRandomDay(),

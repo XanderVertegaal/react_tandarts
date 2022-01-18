@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "../styles/Home.css";
 
 const Home = (props) => {
     
@@ -36,11 +36,11 @@ const Home = (props) => {
     ))
 
     return (
-    <>
+    <div className="home-screen">
     <article>
         <header>
             <h2 className="home-title">Welcome to our clinic!</h2>
-            <p className="home-lead">Dentists currently on duty:</p>
+            <p className="home-lead">Dentists currently on shift:</p>
         </header>
         <table className="peopleTable">
             <tbody>
@@ -57,7 +57,7 @@ const Home = (props) => {
 
     <article>
     <header>
-        <p>Assistants currently on duty:</p>
+        <p className="home-lead">Assistants currently on shift:</p>
     </header>
     <table className="peopleTable">
         <tbody>
@@ -71,7 +71,7 @@ const Home = (props) => {
         </tbody>
     </table>
     </article>
-    </>
+    </div>
     )
 }
 
