@@ -24,7 +24,7 @@ const getDentists = (peopleData) => {
       firstName: item.name.first,
       lastName: item.name.last,
       phoneNumber: item.phone,
-      emailAddress: `${item.name.first.toLowerCase()}.${item.name.last.toLowerCase()}@tandartsenpraktijkbvt.nl`
+      emailAddress: `${item.name.first.toLowerCase()}.${item.name.last.toLowerCase()}@tandartsenpraktijkdenbrugge.nl`
     })
     newId++
   }
@@ -43,7 +43,7 @@ const getAssistants = peopleData => {
       firstName: item.name.first,
       lastName: item.name.last,
       phoneNumber: item.phone,
-      emailAddress: `${item.name.first.toLowerCase()}.${item.name.last.toLowerCase()}@tandartsenpraktijkbvt.nl`
+      emailAddress: `${item.name.first.toLowerCase()}.${item.name.last.toLowerCase()}@tandartsenpraktijkdenbrugge.nl`
     })
     newId++
   }
